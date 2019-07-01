@@ -7,14 +7,15 @@ var header = {
   headers: {"Access-Control-Allow-Origin": "true"}
 };
 
+
 export default class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: "",
-      password: ""
+      username: '',
+      password: ''
     };
-    this.handleSubmit=this.handleSubmit.bind(this);
+
   }
 
   validateForm() {
@@ -27,40 +28,32 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit () {
-    console.log("SS");
-
+  handleSubmit = event => {
+    event.preventDefault();
+    axios({
+      method: 'post',
+      url: 'http://localhost:8080/login',
+      headers: {"Access-Control-Allow-Origin": "true"},
+      data: {
+        username: this.state.username,
+        password: this.state.password
+      }
+    }).then(response => {
+      console.log(response);
+    });
   }
-
-  // handleSubmit = () =>  {
-  // event.preventDefault();
-  // this.setState({ username: event.target.value });
-  // console.log("SS");
-  // }
-  // axios({
-  //   method: 'post',
-  //   url: 'http://localhost:8080/login',
-  //   headers: {"Access-Control-Allow-Origin": "true"},
-  //   data: {
-  //     username: this.state.username,
-  //     password: this.state.password
-  //   }
-  // }).then(response => {
-  //   console.log(response);
-  // });
-
  
   render() {
     return (
       <div className="Login">
-        <Form>
-          <Form.Group controlId="formBasicText">
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group>
             <Form.Label>Username</Form.Label>
-            <Form.Control type="text" placeholder="Enter username" />
+            <Form.Control type="text" id="username" placeholder="Enter username" value={this.state.username} onChange={this.handleChange}/>
           </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group>
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Enter password" />
+            <Form.Control type="password" id="password" placeholder="Enter password" value={this.state.password} onChange={this.handleChange}/>
           </Form.Group>
           <Button variant="primary" type="submit">
             Submit
@@ -70,3 +63,7 @@ export default class Login extends Component {
     );
   }
 }
+
+
+
+

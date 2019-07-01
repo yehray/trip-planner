@@ -28,12 +28,14 @@ router.post('/signup', function (req, res) {
 })
 
 router.get('/login', function (req, res) {
+  console.log(req);
   var message = '';
   var sess = req.session; 
   res.render('index.ejs',{message: message});  
 })
 
 router.post('/login', function (req, res) {
+  console.log(req.body);
   var message = '';
   var sess = req.session; 
   var post  = req.body;
