@@ -39,7 +39,9 @@ export default class Login extends Component {
         password: this.state.password
       }
     }).then(response => {
-      console.log(response);
+      if(response.data !== {}){
+        window.location.href = '/home'
+      }
     });
   }
  
