@@ -2,10 +2,18 @@ import React, { Component } from "react";
 import { Button, Form} from "react-bootstrap";
 import "./Login.css";
 import axios from 'axios'
+import {
+  setActionTemplate,
+  addText,
+  addText2
+} from '../actions';
+import { connect } from 'react-redux';
+import store from '../index.js';
 
 var header = {
   headers: {"Access-Control-Allow-Origin": "true"}
 };
+
 
 
 export default class Login extends Component {
@@ -27,7 +35,7 @@ export default class Login extends Component {
     });
   }
 
-  handleSubmit = event => {
+   handleSubmit =(event, dispatch) => {
     event.preventDefault();
     axios({
       method: 'post',
@@ -38,11 +46,18 @@ export default class Login extends Component {
         password: this.state.password
       }
     }).then(response => {
+      console.log(response.data);  
+      store.dispatch(addText(response.data.first_name));   
+      console.log(store.getState());  
+   
       if(response.data !== {}){
-        window.location.href = '/home'
+        // window.location.href = '/home'
       }
     });
   }
+
+
+  
  
   render() {
     return (
@@ -64,6 +79,8 @@ export default class Login extends Component {
     );
   }
 }
+
+
 
 
 

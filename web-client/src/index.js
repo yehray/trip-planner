@@ -9,31 +9,34 @@ import { createStore } from 'redux';
 import rootReducer from "./reducers/index.js";
 import {
   setActionTemplate,
-  addText
+  addText,
+  addText2
 } from './actions';
 
 
 let initialStore = {
+
 };
 
 const store = createStore(rootReducer, initialStore);
-
+export default store;
 
 //
 // Log the initial state
-console.log(store.getState())
+// console.log(store.getState())
 
 // Every time the state changes, log it
 // Note that subscribe() returns a function for unregistering the listener
-const unsubscribe = store.subscribe(() => console.log(store.getState()))
+// const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 // Dispatch some actions
 store.dispatch(addText('Learn about actions'))
-store.dispatch(addText('Learn about reducers'))
+store.dispatch(addText('Learn about reducers again'))
+store.dispatch(addText2('Learn about reducers 2'))
 store.dispatch(setActionTemplate('Learn about store'))
-console.log(store.getState());
+// console.log(store.getState());
 // Stop listening to state updates
-unsubscribe()
+// unsubscribe()
 //
 
 
@@ -48,3 +51,4 @@ ReactDOM.render(
 );
 
 registerServiceWorker();
+

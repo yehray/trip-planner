@@ -35,11 +35,9 @@ class App extends Component {
 
   render() {
     return <div>
-    {this.state.message}
       <div className='button__container'>
       <button className='button' onClick={this.handleClick}>Click Me</button>
       </div>
-      <p> {this.state.username} </p>
       <a href="/login">LOGIN</a> 
       <a href="/signup">SIGNUP</a> 
       <Routes />

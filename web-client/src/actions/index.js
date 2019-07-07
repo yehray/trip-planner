@@ -11,6 +11,16 @@ export const setActionTemplate = (itemId) => (
       text: text
     }
   }
+
+  export function addText2(text) {
+    return {
+      type: 'ADD_TEXT_2',
+      text: text
+    }
+  }
+
+
+  
   
   // Redux also suggest defining constants for your action types.
   export const setActionTypes = {
