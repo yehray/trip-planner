@@ -8,7 +8,7 @@ import MyComponent from "./components/MyComponent";
 
 export default () =>
   <Switch>
-    <Route path="/home" exact component={Home} />
+    <Route path="/home" component={Home} />
     <Route path="/login" exact component={Login} />
     <Route path="/myComponent" exact component={MyComponent} />
   </Switch>;

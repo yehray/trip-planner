@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import Routes from "./Routes";
+import { connect } from 'react-redux'; 
 
 var header = {
   headers: {"Access-Control-Allow-Origin": "true"}
@@ -40,9 +41,17 @@ class App extends Component {
       </div>
       <a href="/login">LOGIN</a> 
       <a href="/signup">SIGNUP</a> 
+      {/* <p>{this.props.childReducer.text}</p>
+      <p>{this.props.childReducer.text2}</p> */}
       <Routes />
     </div>;
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+  return { childReducer: state.childReducer };
+};
+
+export default connect(mapStateToProps)(App);
+

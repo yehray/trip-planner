@@ -30,10 +30,10 @@ export default store;
 // const unsubscribe = store.subscribe(() => console.log(store.getState()))
 
 // Dispatch some actions
-store.dispatch(addText('Learn about actions'))
-store.dispatch(addText('Learn about reducers again'))
-store.dispatch(addText2('Learn about reducers 2'))
-store.dispatch(setActionTemplate('Learn about store'))
+// store.dispatch(addText('Learn about actions'))
+// store.dispatch(addText('Learn about reducers again'))
+// store.dispatch(addText2('Learn about reducers 2'))
+// store.dispatch(setActionTemplate('Learn about store'))
 // console.log(store.getState());
 // Stop listening to state updates
 // unsubscribe()

@@ -48,10 +48,11 @@ export default class Login extends Component {
     }).then(response => {
       console.log(response.data);  
       store.dispatch(addText(response.data.first_name));   
+      store.dispatch(addText2(response.data.last_name));   
       console.log(store.getState());  
    
       if(response.data !== {}){
-        // window.location.href = '/home'
+        this.props.history.push('/home')     
       }
     });
   }
