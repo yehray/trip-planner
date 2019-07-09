@@ -9,6 +9,7 @@ import {
 import { createStore } from 'redux';
 import store from '../index.js';
 import { connect } from 'react-redux'; 
+import MapContainer from "../containers/MapContainer";
 
 
 class Home extends Component {
@@ -29,8 +30,9 @@ class Home extends Component {
   render() {
     return (
       <div className="Home">
-        <div className="lander">
+        <div className="lander"> 
           <h1>Scratch</h1>
+          <MapContainer></MapContainer>
           <p>A simple note taking app</p>
           <p> ddd {this.state.username}</p>
           <button onClick={this.handleOnClick}>Submit</button>
