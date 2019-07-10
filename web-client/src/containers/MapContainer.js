@@ -1,18 +1,34 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import MarkersList from "../components/MarkersList";
 
 const mapStyles = {
   width: '100%',
   height: '100%'
 };
 
+
 const API_KEY = `${process.env.REACT_APP_GOOGLE_MAPS_JAVASCRIPT_API_KEY}`
 
 export class MapContainer extends Component {
-  state = {
-    showingInfoWindow: false,  //Hides or the shows the infoWindow
-    activeMarker: {},          //Shows the active marker upon click
-    selectedPlace: {}          //Shows the infoWindow to the selected place upon a marker
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      showingInfoWindow: false,  //Hides or the shows the infoWindow
+      activeMarker: {},          //Shows the active marker upon click
+      selectedPlace: {},         //Shows the infoWindow to the selected place upon a marker
+      locations: []    
+    };
+    this.handleMapClick = this.handleMapClick.bind(this);
+  }
+
+  handleMapClick = (ref, map, ev) => {
+    const location = ev.latLng;
+    this.setState(prevState => ({
+      locations: [...prevState.locations, location]
+    }));
+    map.panTo(location);
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -31,6 +47,8 @@ export class MapContainer extends Component {
     }
   };
 
+  
+
   render() {
     return (
       <Map
@@ -38,8 +56,9 @@ export class MapContainer extends Component {
         zoom={14}
         style={mapStyles}
         initialCenter={{ lat: -1.2884, lng: 36.8233 }}
+        onClick={this.handleMapClick}
       >
-        <Marker
+        {/* <Marker
           onClick={this.onMarkerClick}
           name={'Kenyatta International Convention Centre'}
         ></Marker>
@@ -51,7 +70,8 @@ export class MapContainer extends Component {
           <div>
             <h4>{this.state.selectedPlace.name}</h4>
           </div>
-        </InfoWindow>
+        </InfoWindow> */}
+        <MarkersList locations={this.state.locations} icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" />
       </Map>
     );
   }

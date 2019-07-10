@@ -12,6 +12,7 @@
     "react-redux": "^7.1.0",
     "react-router-dom": "^4.4.0-beta.6",
     "react-scripts": "1.1.4",
+    "recompose": "^0.30.0",
     "redux": "^4.0.1"
   },
   "scripts": {
