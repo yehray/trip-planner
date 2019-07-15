@@ -41,8 +41,6 @@ class App extends Component {
       </div>
       <a href="/login">LOGIN</a> 
       <a href="/signup">SIGNUP</a> 
-      {/* <p>{this.props.childReducer.text}</p>
-      <p>{this.props.childReducer.text2}</p> */}
       <Routes />
     </div>;
   }

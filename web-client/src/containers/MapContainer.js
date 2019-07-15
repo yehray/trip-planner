@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import MarkersList from "../components/MarkersList";
+import {
+  setActionTemplate,
+  addText,
+  addText2
+} from '../actions';
+import store from '../index.js';
 
 const mapStyles = {
   width: '100%',
@@ -29,6 +35,7 @@ export class MapContainer extends Component {
       locations: [...prevState.locations, location]
     }));
     map.panTo(location);
+    store.dispatch(addText("test"));   
   };
 
   onMarkerClick = (props, marker, e) =>
