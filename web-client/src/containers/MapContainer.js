@@ -35,7 +35,8 @@ export class MapContainer extends Component {
       locations: [...prevState.locations, location]
     }));
     map.panTo(location);
-    store.dispatch(addText("test"));   
+    store.dispatch(addText(location.lat()));   
+    store.dispatch(addText2(location.lng()));   
   };
 
   onMarkerClick = (props, marker, e) =>
@@ -52,9 +53,7 @@ export class MapContainer extends Component {
         activeMarker: null
       });
     }
-  };
-
-  
+  };  
 
   render() {
     return (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Marker } from 'google-maps-react';
+import {Marker} from 'google-maps-react';
 
 const MarkersList = props => {
   const { locations, ...markerProps } = props;

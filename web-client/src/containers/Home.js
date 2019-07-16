@@ -32,11 +32,17 @@ class Home extends Component {
   // };
 
   componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log(prevState);
     this.state.locationId++;
-    this.state.locations.push(<TestComponent locationId={this.state.locationId}/>);
-    console.log(this.state.locations);
-
+    this.state.locations.push(
+    <TestComponent 
+    locationId={this.state.locationId}
+    lat={this.props.childReducer.text}
+    lng={this.props.childReducer.text2}
+    />);
   }
+
+  // <PlusButton count={this.state.count} increaseCount={(count) => this.setState({count})}/>
 
   render() {
     return (

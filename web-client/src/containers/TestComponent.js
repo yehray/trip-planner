@@ -13,6 +13,8 @@ class TestComponent extends React.Component{
     super();
     this.state = {
       locationId: '',
+      lat: '',
+      lng: ''
     };
   }
   
@@ -25,6 +27,8 @@ class TestComponent extends React.Component{
       <div className="Tile" style={tileStyle}>
       <p>TEST</p>
       <p>{this.props.locationId}</p>
+      <p>{this.props.lat}</p>
+      <p>{this.props.lng}</p>
       </div>
   )
   }
