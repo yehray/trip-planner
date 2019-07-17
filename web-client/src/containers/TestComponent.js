@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Form} from "react-bootstrap";
 
 const tileStyle =  {
   // border-radius: '15px 50px 30px 5px',
@@ -13,6 +14,8 @@ class TestComponent extends React.Component{
     super();
     this.state = {
       locationId: '',
+      locationName: '',
+      description: '',
       lat: '',
       lng: ''
     };
@@ -22,6 +25,12 @@ class TestComponent extends React.Component{
     this.setState({ locationId: props.locationId })
   }
 
+  handleChange = event => {
+    this.setState({
+      [event.target.id]: event.target.value
+    });
+  }
+
   render() {
     return ( 
       <div className="Tile" style={tileStyle}>
@@ -29,6 +38,19 @@ class TestComponent extends React.Component{
       <p>{this.props.locationId}</p>
       <p>{this.props.lat}</p>
       <p>{this.props.lng}</p>
+      <Form onSubmit={this.handleSubmit}>
+          <Form.Group>
+            <Form.Label>Location Name</Form.Label>
+            <Form.Control type="text" id="locationName" placeholder="Enter location name" value={this.state.locationName} onChange={this.handleChange}/>
+          </Form.Group>
+          <Form.Group>
+            <Form.Label>description</Form.Label>
+            <Form.Control type="text" id="description" placeholder="Enter description" value={this.state.description} onChange={this.handleChange}/>
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
       </div>
   )
   }
