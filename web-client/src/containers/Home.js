@@ -10,8 +10,10 @@ import { createStore } from 'redux';
 import store from '../index.js';
 import { connect } from 'react-redux'; 
 import MapContainer from "../containers/MapContainer";
+import Navbar from "../components/Navbar"
 import TestComponent from "./TestComponent";
 import { throws } from "assert";
+import { Nav } from "react-bootstrap";
 
 
 class Home extends Component {
@@ -48,6 +50,7 @@ class Home extends Component {
     return (
       <div className="Home">
         <div className="lander"> 
+        <Navbar />
           <h1>Scratch</h1>
           <ul>
           {this.state.locations.map(item => (
