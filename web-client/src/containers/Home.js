@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./Home.css";
+import "../styles/Home.css";
 import rootReducer from "../reducers/index.js";
 import {
   setActionTemplate,
