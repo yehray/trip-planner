@@ -14,6 +14,7 @@ import Navbar from "../components/Navbar"
 import TestComponent from "./TestComponent";
 import { throws } from "assert";
 import { Nav } from "react-bootstrap";
+import SearchBar from "../components/SearchBar";
 
 
 class Home extends Component {
@@ -52,6 +53,7 @@ class Home extends Component {
         <div className="lander"> 
         <Navbar />
           <h1>Scratch</h1>
+          <SearchBar></SearchBar>
           <ul>
           {this.state.locations.map(item => (
             <li key={Date.now()}>{item}</li>
