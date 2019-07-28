@@ -25,6 +25,7 @@ class Home extends Component {
       username: '',
       password: '',
       locationId: 0,
+      selectedLocation: '',
       locations: []
     };
   }
@@ -43,7 +44,12 @@ class Home extends Component {
     locationId={this.state.locationId}
     lat={this.props.childReducer.text}
     lng={this.props.childReducer.text2}
+    addLocation={this.addNewLocation.bind(this)}
     />);
+  }
+
+  addNewLocation(prevProps, prevState, snapshot) {
+    console.log("tets");
   }
 
   // <PlusButton count={this.state.count} increaseCount={(count) => this.setState({count})}/>
@@ -60,9 +66,8 @@ class Home extends Component {
             <li key={Date.now()}>{item}</li>
           ))}
           </ul>
-          {/* <MapContainer></MapContainer> */}
           <p>A simple note taking app</p>
-          <p> ddd {this.state.username}</p>
+          <p>{this.state.username}</p>
           <button onClick={this.handleOnClick}>Submit</button>
           <p>{this.props.childReducer.text}</p>
           <Map></Map>

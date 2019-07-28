@@ -10,8 +10,8 @@ const tileStyle =  {
 }
 
 class TestComponent extends React.Component{
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       locationId: '',
       locationName: '',
@@ -31,6 +31,10 @@ class TestComponent extends React.Component{
     });
   }
 
+  test = () => {
+    this.props.addLocation()
+  }
+
   render() {
     return ( 
       <div className="Tile" style={tileStyle}>
@@ -38,7 +42,10 @@ class TestComponent extends React.Component{
       <p>{this.props.locationId}</p>
       <p>{this.props.lat}</p>
       <p>{this.props.lng}</p>
-      <Form onSubmit={this.handleSubmit}>
+      <button onClick={this.test}>
+        test
+      </button>
+      {/* <Form onSubmit={this.test}>
           <Form.Group>
             <Form.Label>Location Name</Form.Label>
             <Form.Control type="text" id="locationName" placeholder="Enter location name" value={this.state.locationName} onChange={this.handleChange}/>
@@ -50,7 +57,7 @@ class TestComponent extends React.Component{
           <Button variant="primary" type="submit">
             Submit
           </Button>
-        </Form>
+        </Form> */}
       </div>
   )
   }

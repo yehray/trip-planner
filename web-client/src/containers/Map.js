@@ -1,6 +1,11 @@
 import React, { Component, createRef } from 'react'
 import "../styles/GoogleMap.css";
- 
+import store from '../index.js';
+import {
+  setActionTemplate,
+  addText,
+  addText2
+} from '../actions';
 
 const API_KEY = `${process.env.REACT_APP_GOOGLE_MAPS_JAVASCRIPT_API_KEY}`
 
@@ -79,6 +84,9 @@ export default class Map extends Component {
         } else {
           bounds.extend(place.geometry.location);
         }
+        console.log(place.geometry.location)
+        store.dispatch(addText(place.geometry.location.lat()));   
+        store.dispatch(addText2(place.geometry.location.lng()));   
       });
       map.fitBounds(bounds);
     });
