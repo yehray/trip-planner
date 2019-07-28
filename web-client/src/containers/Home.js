@@ -10,6 +10,7 @@ import { createStore } from 'redux';
 import store from '../index.js';
 import { connect } from 'react-redux'; 
 import MapContainer from "../containers/MapContainer";
+import Map from "../containers/Map";
 import Navbar from "../components/Navbar"
 import TestComponent from "./TestComponent";
 import { throws } from "assert";
@@ -59,11 +60,12 @@ class Home extends Component {
             <li key={Date.now()}>{item}</li>
           ))}
           </ul>
-          <MapContainer></MapContainer>
+          {/* <MapContainer></MapContainer> */}
           <p>A simple note taking app</p>
           <p> ddd {this.state.username}</p>
           <button onClick={this.handleOnClick}>Submit</button>
           <p>{this.props.childReducer.text}</p>
+          <Map></Map>
 
         </div>
       </div> 

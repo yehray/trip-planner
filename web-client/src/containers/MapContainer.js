@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
+import {Map, GoogleApiWrapper, InfoWindow, Marker, SearchBox } from 'google-maps-react';
 import MarkersList from "../components/MarkersList";
 import {
   setActionTemplate,
@@ -28,6 +28,7 @@ export class MapContainer extends Component {
     };
     this.handleMapClick = this.handleMapClick.bind(this);
   }
+  
 
   handleMapClick = (ref, map, ev) => {
     const location = ev.latLng;
@@ -78,6 +79,7 @@ export class MapContainer extends Component {
           </div>
         </InfoWindow> */}
         <MarkersList locations={this.state.locations} icon="https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png" />
+        <SearchBox></SearchBox>
       </Map>
     );
   }
