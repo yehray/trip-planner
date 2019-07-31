@@ -16,6 +16,7 @@ import TestComponent from "./TestComponent";
 import { throws } from "assert";
 import { Nav } from "react-bootstrap";
 import SearchBar from "../components/SearchBar";
+import DraggableList from "../components/DraggableList"
 
 
 class Home extends Component {
@@ -70,6 +71,7 @@ class Home extends Component {
           <p>{this.state.username}</p>
           <button onClick={this.handleOnClick}>Submit</button>
           <p>{this.props.childReducer.text}</p>
+          <DraggableList></DraggableList>
           <Map></Map>
 
         </div>
