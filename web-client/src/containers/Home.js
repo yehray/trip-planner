@@ -27,7 +27,8 @@ class Home extends Component {
       password: '',
       locationId: 0,
       selectedLocation: '',
-      locations: []
+      locations: [],
+      testLocations: []
     };
   }
 
@@ -40,17 +41,18 @@ class Home extends Component {
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log(prevState);
     this.state.locationId++;
-    this.state.locations.push(
-    <TestComponent 
+    this.state.locations.push({
+    id: Date.now(),
+    content: <TestComponent 
     locationId={this.state.locationId}
     lat={this.props.childReducer.text}
     lng={this.props.childReducer.text2}
     addLocation={this.addNewLocation.bind(this)}
-    />);
+    />});
   }
 
   addNewLocation(prevProps, prevState, snapshot) {
-    console.log("tets");
+    console.log("test");
   }
 
   // <PlusButton count={this.state.count} increaseCount={(count) => this.setState({count})}/>
@@ -62,16 +64,11 @@ class Home extends Component {
         <Navbar />
           <h1>Scratch</h1>
           <SearchBar></SearchBar>
-          <ul>
-          {this.state.locations.map(item => (
-            <li key={Date.now()}>{item}</li>
-          ))}
-          </ul>
           <p>A simple note taking app</p>
           <p>{this.state.username}</p>
           <button onClick={this.handleOnClick}>Submit</button>
           <p>{this.props.childReducer.text}</p>
-          <DraggableList></DraggableList>
+          <DraggableList locations={this.state.locations}></DraggableList>
           <Map></Map>
 
         </div>
